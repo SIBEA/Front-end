@@ -1,4 +1,5 @@
 import logo from './logo.svg';
+import Search from './search';
 import './App.css';
 
 function App() {
