@@ -1,0 +1,75 @@
+.Search-body {
+    display: flex;
+    justify-content: center;
+    min-height: 90vh;
+    align-items: center;
+    justify-content: center;
+}
+
+.Column-div {
+    margin-bottom: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+  }
+
+.Search-icon {
+    height: 35px;
+    pointer-events: none;
+}
+
+.Input-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.Javeriana-logo {
+    margin: 20px;
+    align-items: center;
+    height: 200px;
+    pointer-events: none;
+}
+
+.Main-title {
+    text-align: center;
+    margin: 0%;
+}
+
+.Input-search {
+    width: 1000px;
+    padding: 8px 8px;
+    margin: 8px;
+    border-color: #000000;
+    border-radius: 20px;
+}
+
+.Selector-column {
+    padding-left: 25px;
+    padding-right: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.Selector-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.Selector-title {
+    margin-bottom: 5px;
+}
+
+.Selector {
+    border-color: #000000;
+    border-radius: 5px;
+    height: 30px;
+    width: 200px;
+}

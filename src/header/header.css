@@ -1,0 +1,21 @@
+.General-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+    align-items: center;
+    font-size: 20px;
+}
+
+.Header-text {
+    text-align: center;
+    margin-left: 150px;
+    width: 100%;
+}
+
+.logo {
+    margin-left: 20px;
+    margin-right: 20px;
+    align-items: center;
+    height: 50px;
+    pointer-events: none;
+}
