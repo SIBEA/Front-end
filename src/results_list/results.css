@@ -1,7 +1,7 @@
 .Results-body {
-    display: flex;
-    min-height: 90vh;
+    min-height: 94vh;
     margin-bottom: 50px;
+    min-width: 100vh;
 }
 
 .Main-column {
@@ -16,12 +16,17 @@
 .SearchBar-row {
     display: flex;
     flex-direction: row;
-
+    justify-content: space-between;
 }
 
-.Results-Section-row {
+.Input-row {
+    display: flex;
+}
+
+.Results-section-row {
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
 }
 
 .Results-group-column {
@@ -51,13 +56,23 @@
 .Right-section {
     display: flex;
     flex-direction: column;
+    margin-right: 100px;
 }
 
 .Right-panel {
+    margin-top: 50px;
     display: flex;
     flex-direction: column;
 }
 
 p {
     margin: 0px;
+}
+
+a {
+    font-size: 16px;
+}
+
+h3 {
+    margin-bottom: 30px;
 }
