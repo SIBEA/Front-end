@@ -1,0 +1,71 @@
+.Group-body {
+    max-height: 90vh;
+    min-width: 100vh;
+}
+
+.Main-group-title {
+    text-align: start;
+    margin-left: 150px;
+    margin-top: 20px;
+}
+
+.Body-row {
+    display: flex;
+    flex-direction: row;
+    max-height: 100%;
+    max-width: 100%;
+    padding-left: 150px;
+    padding-right:150px;
+    justify-content: space-between;
+}
+
+.Left-section {
+    display: flex;
+    flex-direction: column;
+}
+
+.Profile-group {
+    display: flex;
+    flex-direction: row;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.Profile-image-template {
+    height: 150px;
+    pointer-events: none;
+    margin-right: 15px;
+}
+
+.Profile-information {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.Group-right-section {
+    display: flex;
+    flex-direction: column;
+    margin-right: 100px;
+}
+
+.Participation-group {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.Similar-groups {
+    display: flex;
+    flex-direction: column;
+    margin-top: 100px;
+    max-width: auto;
+}
+
+p {
+    margin: 0px;
+}
+
+a {
+    font-size: 16px;
+}
