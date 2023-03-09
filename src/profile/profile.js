@@ -1,18 +1,12 @@
 import React from 'react';
-import logo from './../resources/javeriana-logo.png';
 import foto from './../resources/foto.jpg';
 import './profile.css';
-import Header from '../header/header.js'
 
 function Profile() {
-    const [texto, setTexto] = React.useState('');
+    //const [texto, setTexto] = React.useState('');
 
   return (
     <div>
-      <header>
-        <Header />
-      </header>
-      <hr></hr>
       <body className="profile-body">
         <div className="column-div">
           <h1 className="main-title">Armando Ríos Hurtado</h1>

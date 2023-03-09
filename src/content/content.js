@@ -1,24 +1,18 @@
 import React from 'react';
-import logo from './../resources/javeriana-logo.png';
-import img from './../resources/img.jpg';
+import image1 from './../resources/img.jpg';
 import map from './../resources/map.jpg';
 import './content.css';
-import Header from '../header/header.js'
 
 function Content() {
 
     return (
         <div>
-          <header>
-            <Header />
-          </header>
-          <hr></hr>
           <body className="profile-body">
             <div className="column-div">
               <h1 className="main-title">Desplazamiento de las abejas en los últimos 20 años</h1>
               <div class="row">
                     <div class="column">
-                        <img src={img} className="image" alt="Imagen"/>
+                        <img src={image1} className="image" alt="Imagen"/>
                     </div>
                     <div class="column">
                         <div class="sub-row">

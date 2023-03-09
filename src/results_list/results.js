@@ -1,7 +1,7 @@
 import React from 'react';
 import Header from './../header/header.js';
 import lupa from './../resources/lupa.png';
-import image from './../resources/results-image-template.png';
+import image1 from './../resources/imagen2.png';
 import './results.css';
 
 function Results() {
@@ -10,10 +10,6 @@ function Results() {
  
     return (
       <div>
-        <header>
-            <Header />
-        </header>
-        <hr></hr>
         <body className="Results-body">
           <div className="Main-column">
             <div className="SearchBar-row">
@@ -32,7 +28,7 @@ function Results() {
             <div className="Results-section-row">
               <div className="Results-group-column">
                 <div className="Result-group">
-                  <img src={image} className="Image-template" alt="Results image template"/>
+                  <img src={image1} className="Image-template" alt="Results image template"/>
                   <div className="Result-information">
                     <a href="otra_pagina.html">El desplazamiento de las abejas en los últimos 20 años</a>
                     <p>El objetivo de este trabajo es explicar y analizar el compo...</p>
@@ -41,7 +37,7 @@ function Results() {
                   </div>
                 </div>
                 <div className="Result-group">
-                  <img src={image} className="Image-template" alt="Results image template"/>
+                  <img src={image1} className="Image-template" alt="Results image template"/>
                   <div className="Result-information">
                     <a href="otra_pagina.html">El desplazamiento de las abejas en los últimos 20 años</a>
                     <p>El objetivo de este trabajo es explicar y analizar el compo...</p>
@@ -50,7 +46,7 @@ function Results() {
                   </div>
                 </div>
                 <div className="Result-group">
-                  <img src={image} className="Image-template" alt="Results image template"/>
+                  <img src={image1} className="Image-template" alt="Results image template"/>
                   <div className="Result-information">
                     <a href="otra_pagina.html">El desplazamiento de las abejas en los últimos 20 años</a>
                     <p>El objetivo de este trabajo es explicar y analizar el compo...</p>
@@ -59,7 +55,7 @@ function Results() {
                   </div>
                 </div>
                 <div className="Result-group">
-                  <img src={image} className="Image-template" alt="Results image template"/>
+                  <img src={image1} className="Image-template" alt="Results image template"/>
                   <div className="Result-information">
                     <a href="otra_pagina.html">El desplazamiento de las abejas en los últimos 20 años</a>
                     <p>El objetivo de este trabajo es explicar y analizar el compo...</p>
@@ -68,7 +64,7 @@ function Results() {
                   </div>
                 </div>
                 <div className="Result-group">
-                  <img src={image} className="Image-template" alt="Results image template"/>
+                  <img src={image1} className="Image-template" alt="Results image template"/>
                   <div className="Result-information">
                     <a href="otra_pagina.html">El desplazamiento de las abejas en los últimos 20 años</a>
                     <p>El objetivo de este trabajo es explicar y analizar el compo...</p>
@@ -77,7 +73,7 @@ function Results() {
                   </div>
                 </div>
                 <div className="Result-group">
-                  <img src={image} className="Image-template" alt="Results image template"/>
+                  <img src={image1} className="Image-template" alt="Results image template"/>
                   <div className="Result-information">
                     <a href="otra_pagina.html">El desplazamiento de las abejas en los últimos 20 años</a>
                     <p>El objetivo de este trabajo es explicar y analizar el compo...</p>
@@ -86,7 +82,7 @@ function Results() {
                   </div>
                 </div>
                 <div className="Result-group">
-                  <img src={image} className="Image-template" alt="Results image template"/>
+                  <img src={image1} className="Image-template" alt="Results image template"/>
                   <div className="Result-information">
                     <a href="otra_pagina.html">El desplazamiento de las abejas en los últimos 20 años</a>
                     <p>El objetivo de este trabajo es explicar y analizar el compo...</p>
