@@ -13,7 +13,6 @@ function Search() {
       <header>
         <Header />
       </header>
-      <hr></hr>
       <body className="Search-body">
         <div className="Column-div">
           <h1 className="Main-title">Sistema Inteligente de Búsqueda <br></br>y Exploración Académica</h1>

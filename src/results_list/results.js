@@ -13,7 +13,6 @@ function Results() {
         <header>
             <Header />
         </header>
-        <hr></hr>
         <body className="Results-body">
           <div className="Main-column">
             <div className="SearchBar-row">
