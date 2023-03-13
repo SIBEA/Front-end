@@ -8,6 +8,15 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+h1{
+  color: #2C5697;
+  font-family: Helvetica;
+}
+
+a{
+  color: #2C5697;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;

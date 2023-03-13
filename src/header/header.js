@@ -12,6 +12,7 @@ function Header() {
           </div>
           <img src={logo} className="logo" alt="Logo"/>
         </header>
+        <hr></hr>
       </div>
     );
   }
