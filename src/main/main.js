@@ -1,4 +1,5 @@
 import React from 'react';
+import Content from '../content/content.js';
 import Header from '../header/header.js'
 import Group from '../investigation_group/group.js';
 import Profile from '../profile/profile.js';
@@ -12,7 +13,7 @@ function Main() {
           </header>
           <hr></hr>
           <body>
-            <Profile />
+            <Content />
           </body>
         </div>
       );

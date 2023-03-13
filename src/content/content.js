@@ -8,7 +8,7 @@ function Content() {
     return (
         <div>
           <body className="profile-body">
-            <div className="column-div">
+            <div className="main-div">
               <h1 className="main-title">Desplazamiento de las abejas en los últimos 20 años</h1>
               <div class="row">
                     <div class="column">
@@ -38,8 +38,7 @@ function Content() {
                                             sufriría, en particular, la producción de manzanas, fresas,
                                             tomates y almendras. </p>
                         <div class="sub-row">
-                            <h3 class="subtitle">Año:</h3>
-                            <p class="basic-p2">2018</p>
+                            <p class="basic-p2"><bold>Año:</bold>2018</p>
                         </div>
                     </div>
                 </div>
