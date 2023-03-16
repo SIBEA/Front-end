@@ -1,7 +1,8 @@
 import React from 'react';
-import image1 from './../resources/img.jpg';
+import { Link, Outlet } from 'react-router-dom';
+import image1 from './../resources/pic.jpg';
 import map from './../resources/map.jpg';
-import './content.css';
+import './css/result-content.css';
 
 function Content() {
 
@@ -10,15 +11,15 @@ function Content() {
           <body className="profile-body">
             <div className="main-div">
               <h1 className="main-title">Desplazamiento de las abejas en los últimos 20 años</h1>
-              <div class="row">
-                    <div class="column">
+              <div className="row">
+                    <div className="column">
                         <img src={image1} className="image" alt="Imagen"/>
                     </div>
-                    <div class="column">
-                        <div class="sub-row">
-                        <h3 class="subtitle">Descripción:</h3>
+                    <div className="column">
+                        <div className="sub-row">
+                        <h3 className="subtitle">Descripción:</h3>
                         </div>
-                        <p class="basic-p">La próxima vez que una abeja zumbe a tu
+                        <p className="basic-p">La próxima vez que una abeja zumbe a tu
                                             alrededor, recuerda que muchos de nuestros
                                             alimentos dependen en gran medida de
                                             la polinización natural intermediada por
@@ -37,43 +38,44 @@ function Content() {
                                             descenso en las poblaciones de insectos polinizadores;
                                             sufriría, en particular, la producción de manzanas, fresas,
                                             tomates y almendras. </p>
-                        <div class="sub-row">
-                            <p class="basic-p2"><bold>Año:</bold>2018</p>
+                        <div className="sub-row">
+                            <p className="basic-p2"><bold>Año:</bold>2018</p>
                         </div>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="column">
-                        <h3 class="subtitle">Autores:</h3>
-                        <div class="sub-row">
-                            <a href="otra_pagina.html">Juan Camilo Peña Triana</a>
+                <div className="row">
+                    <div className="column">
+                        <h3 className="subtitle">Autores:</h3>
+                        <div className="sub-row">
+                            <Link to="/juancamilopenatriana">Juan Camilo Peña Triana</Link>
                         </div>
-                        <p class="basic-p">Experto en animales y geografía</p>
-                        <p class="basic-p">Pontificia Universidad Javeriana</p>
-                        <div class="sub-row">
+                        <p className="basic-p">Experto en animales y geografía</p>
+                        <p className="basic-p">Pontificia Universidad Javeriana</p>
+                        <div className="sub-row">
                             <a href="otra_pagina.html">Juliana Rodríguez Peña</a>
                         </div>
-                        <p class="basic-p">Profesora de cátedra de Biología</p>
-                        <p class="basic-p">Universidad de los Andés</p>
-                        <div class="sub-row">
+                        <p className="basic-p">Profesora de cátedra de Biología</p>
+                        <p className="basic-p">Universidad de los Andés</p>
+                        <div className="sub-row">
                             <a href="otra_pagina.html">Julián Andrés Rivera Montenegro</a>
                         </div>
-                        <p class="basic-p">Investigador Senior de Biología y Fauna</p>
-                        <p class="basic-p">Universidad de los Andés</p>
+                        <p className="basic-p">Investigador Senior de Biología y Fauna</p>
+                        <p className="basic-p">Universidad de los Andés</p>
                     </div>
-                    <div class="column">
-                        <h3 class="subtitle">Impacto Regional:</h3>
+                    <div className="column">
+                        <h3 className="subtitle">Impacto Regional:</h3>
                         <img src={map} className="image" alt="Mapa"/>
                     </div>
-                    <div class="column">
-                        <div class="sub-row">
-                            <p class="main-p">Zonas de mayor impacto:</p> 
+                    <div className="column">
+                        <div className="sub-row">
+                            <p className="main-p">Zonas de mayor impacto:</p> 
                         </div>
                         <ul>
                             <li> Amazonas</li>
                             <li> Putumayo </li>
                         </ul>
                     </div>
+                    <Outlet />
                 </div>
             </div>
           </body>

@@ -1,20 +1,28 @@
 import React from 'react';
-import Content from '../content/content.js';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Header from '../header/header.js'
-import Group from '../investigation_group/group.js';
-import Profile from '../profile/profile.js';
+import Content from '../pages/result-content.js';
+import Results from '../pages/search-results.js';
+import Search from '../pages/search.js';
 
 function Main() {
 
     return (
         <div>
-          <header>
-            <Header />
-          </header>
-          <hr></hr>
-          <body>
-            <Content />
-          </body>
+          <BrowserRouter>
+            <header>
+              <Header />
+            </header>
+            <hr></hr>
+            <body>
+              <Routes>
+                <Route index path="/" element={<Results />} />
+                <Route path="/search" element={<Results />} />
+                <Route path="/content" element={<Content />} />
+              </Routes>
+              
+            </body>
+          </BrowserRouter>
         </div>
       );
 }
