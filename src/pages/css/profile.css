@@ -1,0 +1,113 @@
+.profile-body {
+    max-height: 90vh;
+    min-width: 100vh;
+}
+
+.main-title {
+    text-align: center;
+    margin-top: 0px;
+}
+
+.main-div {
+    margin-top: 15px;
+    padding-left: 30px;
+    width: 700px;
+}
+
+.second-div {
+    margin-top: 15px;
+    padding-right: 30px;
+    width: 700px;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    max-height: 100%;
+    max-width: 100%;
+    justify-content: center;
+}
+
+.row2 {
+    display: flex;
+    flex-direction: row;
+    max-height: 100%;
+    max-width: 100%;
+    justify-content: left;
+}
+
+.column1 {
+    padding-left: 25px;
+    padding-right: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: left;
+}
+
+.column2 {
+    padding-left: 25px;
+    padding-right: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: left;
+}
+
+.column {
+    padding-left: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: left;
+}
+
+.sub-column {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: left;
+}
+
+.image {
+    align-items: center;
+    height: 200px;
+    pointer-events: none;
+}
+
+.left-section {
+    display: flex;
+    flex-direction: column;
+}
+
+.sub-row {
+    display: flex;
+    flex-direction: row;
+    align-items: left;
+    justify-content: left;
+    margin-top: 5px;
+}
+
+
+.main-p {
+    margin-top: 1px;
+    margin-bottom: 5px;
+    margin-right: 3px;
+    font-weight: bold;
+    font-size: medium;
+}
+
+.basic-p {
+    margin-top: 1px;
+    margin-bottom: 5px;
+    font-size: medium;
+}
+
+h3 {
+    margin-top: 7px;
+    margin-bottom: 5px;
+}
+
+a {
+    font-size: medium;
+}

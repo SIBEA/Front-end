@@ -1,8 +1,8 @@
 import React from 'react';
-import Header from './../header/header.js';
+import { Link, Outlet } from 'react-router-dom';
 import lupa from './../resources/lupa.png';
-import image from './../resources/results-image-template.png';
-import './results.css';
+import image from './../resources/pic2.png'; 
+import './css/search-results.css';
 
 function Results() {
 
@@ -10,9 +10,6 @@ function Results() {
  
     return (
       <div>
-        <header>
-            <Header />
-        </header>
         <body className="Results-body">
           <div className="Main-column">
             <div className="SearchBar-row">
@@ -25,7 +22,7 @@ function Results() {
                   placeholder="Search" 
                   className="Input-search" 
                   />
-                <img src={lupa} class="Search-icon" alt="Lupa"></img>
+                <img src={lupa} className="search-icon" alt="Lupa"></img>
               </div>
             </div>
             <div className="Results-section-row">
@@ -33,7 +30,7 @@ function Results() {
                 <div className="Result-group">
                   <img src={image} className="Image-template" alt="Results image template"/>
                   <div className="Result-information">
-                    <a href="otra_pagina.html">El desplazamiento de las abejas en los últimos 20 años</a>
+                    <Link to="/content">El desplazamiento de las abejas en los últimos 20 años</Link>
                     <p>El objetivo de este trabajo es explicar y analizar el compo...</p>
                     <p>de las últimas dos décadas para así demostrar...</p>
                     <a href="otra_pagina.html">Andrés Felipe Paez Ordoñez, Adrián Solano Rincón, Laura Tatiana Salamanca Saenz</a>
@@ -110,6 +107,7 @@ function Results() {
                   <a href="otra_pagina.html">Natalia Salazar Rodriguez</a>
                 </div>
               </div>
+              <Outlet />
             </div>
           </div>
         </body>

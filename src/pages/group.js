@@ -9,6 +9,7 @@ function Group() {
             <header>
                 <Header />
             </header>
+            <hr></hr>
             <body className="Group-group-body">
                 <h1 className="Main-group-title">Looking for Robots - Grupo de Investigación</h1>
                 <div className="Body-row">

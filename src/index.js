@@ -1,17 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import Content from './content/content';
-import Search from './main_search/search';
-import Profile from './profile/profile';
-import Results from './results_list/results';
-import Group from './investigation_group/group'
 import reportWebVitals from './reportWebVitals';
+import Main from './main/main';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <Search />
+    <Main />
   </React.StrictMode>
 );
 

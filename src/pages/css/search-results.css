@@ -23,6 +23,11 @@
     display: flex;
 }
 
+.search-icon {
+    height: 35px;
+    pointer-events: none;
+}
+
 .Results-section-row {
     display: flex;
     flex-direction: row;

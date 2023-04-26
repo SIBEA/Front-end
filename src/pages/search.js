@@ -1,8 +1,8 @@
 import React from 'react';
+import { Link, Outlet } from 'react-router-dom';
 import logo from './../resources/javeriana-logo.png';
 import lupa from './../resources/lupa.png';
-import './search.css';
-import Header from '../header/header.js'
+import './css/search.css';
 
 function Search() {
 
@@ -10,14 +10,11 @@ function Search() {
 
   return (
     <div>
-      <header>
-        <Header />
-      </header>
       <body className="Search-body">
         <div className="Column-div">
           <h1 className="Main-title">Sistema Inteligente de Búsqueda <br></br>y Exploración Académica</h1>
           <img src={logo} className="Javeriana-logo" alt="Logo"/>
-          <div class="Input-row">
+          <div className="Input-row">
             <input 
               type="text" 
               value={texto} 
@@ -25,30 +22,31 @@ function Search() {
               placeholder="Search" 
               className="Input-search" 
               />
-            <img src={lupa} class="Search-icon" alt="Lupa"></img>
+              <button><img className="search-icon" src={lupa} alt="Lupa"/></button>
+              <Outlet />
           </div>
-          <div class="Selector-row">
-            <div class="Selector-column">
-              <p class="Selector-title">Departamento</p>
-              <select class="Selector">
+          <div className="Selector-row">
+            <div className="Selector-column">
+              <p className="Selector-title">Departamento</p>
+              <select className="Selector">
                 <option value="0"></option>
                 <option value="1">Opción 1</option>
                 <option value="2">Opción 2</option>
                 <option value="3">Opción 3</option>
               </select>
             </div>
-            <div class="Selector-column">
-              <p class="Selector-title">Área de estudio</p>
-              <select class="Selector">
+            <div className="Selector-column">
+              <p className="Selector-title">Área de estudio</p>
+              <select className="Selector">
                 <option value="0"></option>
                 <option value="1">Opción 1</option>
                 <option value="2">Opción 2</option>
                 <option value="3">Opción 3</option>
               </select>
             </div>
-            <div class="Selector-column">
-              <p class="Selector-title">Organizar por</p>
-              <select class="Selector">
+            <div className="Selector-column">
+              <p className="Selector-title">Organizar por</p>
+              <select className="Selector">
                 <option value="0"></option>
                 <option value="1">Opción 1</option>
                 <option value="2">Opción 2</option>
@@ -56,9 +54,9 @@ function Search() {
               </select>
             </div>
           </div>
-          <div class="Selector-column">
-            <p class="Selector-title">Tipo de búsqueda</p>
-              <select class="Selector">
+          <div className="Selector-column">
+            <p className="Selector-title">Tipo de búsqueda</p>
+              <select className="Selector">
                 <option value="0"></option>
                 <option value="1">Opción 1</option>
                 <option value="2">Opción 2</option>
