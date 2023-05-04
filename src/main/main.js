@@ -4,6 +4,7 @@ import Header from '../header/header.js'
 import Content from '../pages/result-content.js';
 import Results from '../pages/search-results.js';
 import Search from '../pages/search.js';
+import Profile from '../pages/profile.js';
 
 function Main() {
 
@@ -19,6 +20,7 @@ function Main() {
                 <Route index path="/" element={<Results />} />
                 <Route path="/search" element={<Results />} />
                 <Route path="/content" element={<Content />} />
+                <Route path="/profile" element={<Profile />} />
               </Routes>
               
             </body>

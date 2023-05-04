@@ -1,6 +1,6 @@
 import React from 'react';
 import foto from './../resources/foto.jpg';
-import './profile.css';
+import './css/profile.css';
 
 function Profile() {
     //const [texto, setTexto] = React.useState('');

@@ -10,7 +10,7 @@ function Results() {
  
     return (
       <div>
-        <body className="Results-body">
+        <body className="results-body">
           <div className="Main-column">
             <div className="SearchBar-row">
               <h1>Resultados para: Abejas</h1>

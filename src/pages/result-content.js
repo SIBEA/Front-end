@@ -39,7 +39,7 @@ function Content() {
                                             sufriría, en particular, la producción de manzanas, fresas,
                                             tomates y almendras. </p>
                         <div className="sub-row">
-                            <p className="basic-p2"><bold>Año:</bold>2018</p>
+                            <p className="basic-p2"><b>Año: </b>2018</p>
                         </div>
                     </div>
                 </div>
@@ -47,7 +47,7 @@ function Content() {
                     <div className="column">
                         <h3 className="subtitle">Autores:</h3>
                         <div className="sub-row">
-                            <Link to="/juancamilopenatriana">Juan Camilo Peña Triana</Link>
+                            <Link to="/profile">Armando Rios Hurtado</Link>
                         </div>
                         <p className="basic-p">Experto en animales y geografía</p>
                         <p className="basic-p">Pontificia Universidad Javeriana</p>
