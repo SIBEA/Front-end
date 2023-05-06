@@ -1,0 +1,15 @@
+export default {
+    meEndpoint: 'http://litecomm.co:8080/api/auth/me',
+    loginEndpoint: 'http://litecomm.co:8080/api/auth',
+    registerEndpoint: 'http://litecomm.co:8080/api/onboarding/register',
+    validatePhoneNumberEndpoint: 'http://litecomm.co:8080/api/onboarding/validate/sms',
+    validateEmailEndpoint: 'http://litecomm.co:8080/api/onboarding/validate/email',
+    handleUpdateAccountStatusURL: 'http://litecomm.co:8080/account',
+    homeIndexLoadDataURL: 'http://litecomm.co:8080/api/dashboard',
+    sendMessageSmsEndPoint: 'http://litecomm.co:8080/api/sms/sendMessage',
+    massiveSendingSmsMessageEndPoint: 'http://litecomm.co:8080/api/sms/sendMessage/massive',
+    changePasswordEndPoint: 'http://litecomm.co:8080/api/account/changePassword',
+    findClientByNameEndPoint: 'http://litecomm.co:8080/api/account/findByName',
+    sendOfferEndPoint: 'http://litecomm.co:8080/api/email/sendOffer',
+    getOfferInfoEndPoint: 'http://litecomm.co:8080/api/account/offer',
+}
