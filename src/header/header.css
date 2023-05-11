@@ -3,14 +3,14 @@
     padding-bottom: 15px;
     display: flex;
     flex-direction: row;
-    justify-content: right;
-    align-items: center;
+    justify-content: left;
+    align-items: left;
     font-size: 20px;
     background-color: #2C5697;
 }
 
 .Header-text {
-    text-align: center;
+    text-align: left;
     margin-left: 150px;
     width: 100%;
     color: #FFFFFF;
@@ -19,7 +19,7 @@
 .logo {
     margin-left: 20px;
     margin-right: 20px;
-    align-items: center;
+    align-items: left;
     height: 50px;
     pointer-events: none;
 }

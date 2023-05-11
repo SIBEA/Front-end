@@ -16,7 +16,7 @@ let DefaultIcon = leaflet.icon({
 leaflet.Marker.prototype.options.icon = DefaultIcon;
 
 
-function Content() {
+function ProjectContent() {
 
     return (
         <div>
@@ -25,7 +25,6 @@ function Content() {
                     <h1 className="main-title">Desplazamiento de las abejas en los últimos 20 años</h1>
                     <div className="row">
                         <div className="column">
-                            <img src={image1} className="image" alt="Imagen" />
                         </div>
                         <div className="column">
                             <div className="sub-row">
@@ -97,4 +96,4 @@ function Content() {
     );
 }
 
-export default Content;
+export default ProjectContent;
