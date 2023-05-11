@@ -68,98 +68,139 @@ function Results() {
             </Tabs>
           </Box>
           <TabPanel value={value} index={0}>
-            Item One
+            <Box>
+              <Box
+                  sx={{
+                      display: 'flex',
+                      justifyContent: 'left',
+                      marginBottom: "5px"
+                  }}>
+                  <Link to="/content">El desplazamiento de las abejas en los últimos 20 años</Link>
+              </Box>
+              <Box
+                sx={{
+                    display: 'flex',
+                    justifyContent: 'left',
+                    marginBottom: "20px"
+                }}>
+                  <Typography
+                      sx={{
+                          fontWeight: 500,
+                          fontSize: {
+                              xs: '1.0rem',
+                              sm: '1.0rem',
+                              md: '1.0rem',
+                              lg: '1.0rem',
+                              xl: '1.0rem'
+                          },
+                          letterSpacing: '0.08px',
+                          maxLines:'4'
+                      }}>
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                  </Typography>
+              </Box>
+            </Box>
+            <Box>
+              <Box
+                  sx={{
+                      display: 'flex',
+                      justifyContent: 'left',
+                      marginBottom: "5px"
+                  }}>
+                  <Link to="/content">El desplazamiento de las abejas en los últimos 20 años</Link>
+              </Box>
+              <Box
+                sx={{
+                    display: 'flex',
+                    justifyContent: 'left',
+                    marginBottom: "20px"
+                }}>
+                  <Typography
+                      sx={{
+                          fontWeight: 500,
+                          fontSize: {
+                              xs: '1.0rem',
+                              sm: '1.0rem',
+                              md: '1.0rem',
+                              lg: '1.0rem',
+                              xl: '1.0rem'
+                          },
+                          letterSpacing: '0.08px',
+                          maxLines:'4'
+                      }}>
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                  </Typography>
+              </Box>
+            </Box>
           </TabPanel>
           <TabPanel value={value} index={1}>
-            Item Two
+            <Box>
+                <Box
+                    sx={{
+                        display: 'flex',
+                        justifyContent: 'left',
+                        marginBottom: "5px"
+                    }}>
+                    <Link to="/content">Biotecnología Ambiental e Industrial - GBAI</Link>
+                </Box>
+                <Box
+                  sx={{
+                      display: 'flex',
+                      justifyContent: 'left',
+                      marginBottom: "20px"
+                  }}>
+                    <Typography
+                        sx={{
+                            fontWeight: 500,
+                            fontSize: {
+                                xs: '1.0rem',
+                                sm: '1.0rem',
+                                md: '1.0rem',
+                                lg: '1.0rem',
+                                xl: '1.0rem'
+                            },
+                            letterSpacing: '0.08px',
+                            maxLines:'4'
+                        }}>
+                        Se producen inoculantes microbianos, enzimas, biocontroladores, para uso agroindustrial. Se trabaja en sistemas de calidad (alimentos, cosmética y farmacéutica); desarrollo, puesta a punto y validación de las técnicas de laboratorio para el control de proceso y de calidad. Utiliza sistemas biológicos indicadores de calidad de aguas y lodos, consultorías, asesoramiento e investigación. Trabaja en la eliminación de contaminantes e inactivación de microrganismos a través de técnicas biológicas y físicas (procesos de oxidación avanzados, plasma y fotocatálisis). Organismos recombinantes (bacterias, levaduras) para la producción de proteínas y enzimas de uso farmacéutico, cosmético y ambiental y diagnóstico de micoorganismos emergentes en alimentos.
+                    </Typography>
+                </Box>
+            </Box>
           </TabPanel>
           <TabPanel value={value} index={2}>
-            Item Three
+            <Box>
+                <Box
+                    sx={{
+                        display: 'flex',
+                        justifyContent: 'left',
+                        marginBottom: "5px"
+                    }}>
+                    <Link to="/content">Miguel Angel Díaz Ramirez</Link>
+                </Box>
+                <Box
+                  sx={{
+                      display: 'flex',
+                      justifyContent: 'left',
+                      marginBottom: "20px"
+                  }}>
+                    <Typography
+                        sx={{
+                            fontWeight: 500,
+                            fontSize: {
+                                xs: '1.0rem',
+                                sm: '1.0rem',
+                                md: '1.0rem',
+                                lg: '1.0rem',
+                                xl: '1.0rem'
+                            },
+                            letterSpacing: '0.08px',
+                            maxLines:'4'
+                        }}>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    </Typography>
+                </Box>
+            </Box>
           </TabPanel>
-          <div className="Results-section-row">
-            <div className="Results-group-column">
-              <div className="Result-group">
-                <img src={image} className="Image-template" alt="Results image template" />
-                <div className="Result-information">
-                  <Link to="/content">El desplazamiento de las abejas en los últimos 20 años</Link>
-                  <p>El objetivo de este trabajo es explicar y analizar el compo...</p>
-                  <p>de las últimas dos décadas para así demostrar...</p>
-                  <a href="otra_pagina.html">Andrés Felipe Paez Ordoñez, Adrián Solano Rincón, Laura Tatiana Salamanca Saenz</a>
-                </div>
-              </div>
-              <div className="Result-group">
-                <img src={image} className="Image-template" alt="Results image template" />
-                <div className="Result-information">
-                  <a href="otra_pagina.html">El desplazamiento de las abejas en los últimos 20 años</a>
-                  <p>El objetivo de este trabajo es explicar y analizar el compo...</p>
-                  <p>de las últimas dos décadas para así demostrar...</p>
-                  <a href="otra_pagina.html">Andrés Felipe Paez Ordoñez, Adrián Solano Rincón, Laura Tatiana Salamanca Saenz</a>
-                </div>
-              </div>
-              <div className="Result-group">
-                <img src={image} className="Image-template" alt="Results image template" />
-                <div className="Result-information">
-                  <a href="otra_pagina.html">El desplazamiento de las abejas en los últimos 20 años</a>
-                  <p>El objetivo de este trabajo es explicar y analizar el compo...</p>
-                  <p>de las últimas dos décadas para así demostrar...</p>
-                  <a href="otra_pagina.html">Andrés Felipe Paez Ordoñez, Adrián Solano Rincón, Laura Tatiana Salamanca Saenz</a>
-                </div>
-              </div>
-              <div className="Result-group">
-                <img src={image} className="Image-template" alt="Results image template" />
-                <div className="Result-information">
-                  <a href="otra_pagina.html">El desplazamiento de las abejas en los últimos 20 años</a>
-                  <p>El objetivo de este trabajo es explicar y analizar el compo...</p>
-                  <p>de las últimas dos décadas para así demostrar...</p>
-                  <a href="otra_pagina.html">Andrés Felipe Paez Ordoñez, Adrián Solano Rincón, Laura Tatiana Salamanca Saenz</a>
-                </div>
-              </div>
-              <div className="Result-group">
-                <img src={image} className="Image-template" alt="Results image template" />
-                <div className="Result-information">
-                  <a href="otra_pagina.html">El desplazamiento de las abejas en los últimos 20 años</a>
-                  <p>El objetivo de este trabajo es explicar y analizar el compo...</p>
-                  <p>de las últimas dos décadas para así demostrar...</p>
-                  <a href="otra_pagina.html">Andrés Felipe Paez Ordoñez, Adrián Solano Rincón, Laura Tatiana Salamanca Saenz</a>
-                </div>
-              </div>
-              <div className="Result-group">
-                <img src={image} className="Image-template" alt="Results image template" />
-                <div className="Result-information">
-                  <a href="otra_pagina.html">El desplazamiento de las abejas en los últimos 20 años</a>
-                  <p>El objetivo de este trabajo es explicar y analizar el compo...</p>
-                  <p>de las últimas dos décadas para así demostrar...</p>
-                  <a href="otra_pagina.html">Andrés Felipe Paez Ordoñez, Adrián Solano Rincón, Laura Tatiana Salamanca Saenz</a>
-                </div>
-              </div>
-              <div className="Result-group">
-                <img src={image} className="Image-template" alt="Results image template" />
-                <div className="Result-information">
-                  <a href="otra_pagina.html">El desplazamiento de las abejas en los últimos 20 años</a>
-                  <p>El objetivo de este trabajo es explicar y analizar el compo...</p>
-                  <p>de las últimas dos décadas para así demostrar...</p>
-                  <a href="otra_pagina.html">Andrés Felipe Paez Ordoñez, Adrián Solano Rincón, Laura Tatiana Salamanca Saenz</a>
-                </div>
-              </div>
-            </div>
-            <div className="Right-section">
-              <div className="Right-panel">
-                <h3>Búsquedas relacionadas</h3>
-                <a href="otra_pagina.html">Panales de abejas</a>
-                <a href="otra_pagina.html">Reina abeja</a>
-                <a href="otra_pagina.html">Migracion de abejas</a>
-                <a href="otra_pagina.html">Miel de abejas</a>
-              </div>
-              <div className="Right-panel">
-                <h3>Investigadores relacionados</h3>
-                <a href="otra_pagina.html">Miguel Angel Díaz Ramirez</a>
-                <a href="otra_pagina.html">Alejandra Mora Martinez</a>
-                <a href="otra_pagina.html">Nicolas Azuero Gomez</a>
-                <a href="otra_pagina.html">Natalia Salazar Rodriguez</a>
-              </div>
-            </div>
-            <Outlet />
-          </div>
         </div>
       </body>
     </div>
