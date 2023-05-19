@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import logo from './../resources/javeriana-logo-horizontal.png';
 import './header.css'
-import { Box, Tab, Tabs, Typography, TextField, Button, IconButton } from '@mui/material';
+import { Box, Tab, Tabs, Typography, TextField, Button, IconButton, InputAdornment } from '@mui/material';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import SearchIcon from '@mui/icons-material/Search';
 import { useSearchParams } from 'react-router-dom'
@@ -23,7 +23,9 @@ function Header() {
   }, []);
 
   const goToHome = (e) => {
-    window.location.href = "/";
+    if (searchCriteria != "") {
+      window.location.href = "/";
+    }
   }
 
   const search = (e) => {
@@ -31,7 +33,7 @@ function Header() {
   }
 
   const handleKeyPress = (event) => {
-    if(event.key === 'Enter'){
+    if (event.key === 'Enter') {
       search();
     }
   }
@@ -39,15 +41,26 @@ function Header() {
   return (
     <div>
       <header className="General-header">
-        <img onClick={() => goToHome()} src={logo} style={{pointerEvents: "all", cursor: "pointer"}} className="logo" alt="Logo" />
-        <ThemeProvider theme={darkTheme}>
-          <div style={{ textAlign: "right", marginRight: "1.5rem", width: "100%", lineHeight: 2.5 }}>
-            <TextField onKeyPress={handleKeyPress} value={searchCriteria} onChange={e => setSearchCriteria(e.target.value)} label="Buscar" style={{ marginLeft: "2rem", width: "350px" }} variant="filled" />
-            <IconButton onClick={() => search()} size="medium" style={{ marginLeft: "1rem" }}>
-              <SearchIcon fontSize="medium" />
-            </IconButton>
-          </div>
-        </ThemeProvider>
+        <img onClick={() => goToHome()} src={logo} style={{ pointerEvents: "all", cursor: "pointer" }} className="logo" alt="Logo" />
+        {
+          window.location.pathname != "/" && (
+            <ThemeProvider theme={darkTheme}>
+              <div style={{ textAlign: "right", marginRight: "1.5rem", width: "100%", lineHeight: 2.5 }}>
+                <TextField onKeyPress={handleKeyPress} value={searchCriteria} onChange={e => setSearchCriteria(e.target.value)} label="Buscar" style={{ marginLeft: "2rem", width: "350px" }}
+                  InputProps={{
+                    endAdornment: (
+                      <InputAdornment position="end">
+                        <IconButton onClick={() => search()} size="medium" >
+                          <SearchIcon fontSize="medium" />
+                        </IconButton>
+                      </InputAdornment>
+                    ),
+                  }}
+                  variant="filled" />
+              </div>
+            </ThemeProvider>
+          )
+        }
       </header>
       <hr></hr>
     </div>
