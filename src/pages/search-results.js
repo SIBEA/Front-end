@@ -91,21 +91,27 @@ function Results() {
     switch (newTab) {
       case 0:
         let rawProjects = await fetch(`https://back.klariff.com/search/proyectos/${searchParams.get('query')}?num=10&inicio=0`)
+        let rawTotalProjects = await fetch(`https://back.klariff.com/proyectos/${searchParams.get('query')}/total`)
         let projectsResponse = await rawProjects.json();
+        saved.pageCount = Math.ceil(await rawTotalProjects.json() / ROWS_PER_PAGE);
         saved.tab = newTab;
         saved.projectResults = projectsResponse
         setProjectResults(projectsResponse);
         break;
       case 1:
         let rawGroups = await fetch(`https://back.klariff.com/search/grupos/${searchParams.get('query')}?num=10&inicio=0`)
+        let rawTotalGroups = await fetch(`https://back.klariff.com/grupos/${searchParams.get('query')}/total`)
         let groupsResponse = await rawGroups.json();
+        saved.pageCount = Math.ceil(await rawTotalGroups.json() / ROWS_PER_PAGE);
         saved.tab = newTab;
         saved.groupResults = groupsResponse;
         setGroupResults(groupsResponse);
         break;
       case 2:
         let rawResearchers = await fetch(`https://back.klariff.com/search/investigadores/${searchParams.get('query')}?num=10&inicio=0`)
+        let rawTotalResearchers = await fetch(`https://back.klariff.com/investigadores/${searchParams.get('query')}/total`)
         let researchersResponse = await rawResearchers.json();
+        saved.pageCount = Math.ceil(await rawTotalResearchers.json() / ROWS_PER_PAGE);
         saved.tab = newTab;
         saved.researcherResults = researchersResponse;
         setResearcherResults(researchersResponse);

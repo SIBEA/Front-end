@@ -20,9 +20,6 @@ leaflet.Marker.prototype.options.icon = DefaultIcon;
 function GroupContent() {
     const [project, setProject] = useState(null);
     const [searchParams, setSearchParams] = useSearchParams();
-    const [projectTopKResults, setProjectTopKResults] = useState(null);
-    const [coordinates, setCoordinates] = useState(null);
-    const [projects, setProjects] = useState(null);
     const [group, setGroup] = useState(null);
 
     const openProject = (id) => {
@@ -49,7 +46,7 @@ function GroupContent() {
                     })
                 } else {
                     let saved = { group: groupResponse.docs[0] ? groupResponse.docs[0] : null }
-                    setProject(groupResponse.docs[0]);
+                    setGroup(groupResponse.docs[0]);
                     window.sessionStorage.setItem('group', JSON.stringify(saved));
                     Swal.close();
                 }
