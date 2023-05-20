@@ -53,7 +53,7 @@ export default function ProjectResultItem(props) {
                             props.authors.map((author, index) => {
                                 if (!isNull(author.nombre) && index == 0) {
                                     return (
-                                        <Chip onClick={(e) => openGroup(author.id)} style={{backgroundColor: "#F8CD00", color: "black", cursor: "pointer"}} key={"author_" + index} label={author.nombre.charAt(0).toUpperCase() + author.nombre.slice(1)} color="primary" />
+                                        <Chip onClick={(e) => openGroup(author.id)} style={{backgroundColor: "#F8CD00", width: "fit-content", color: "black", cursor: "pointer"}} key={"author_" + index} label={author.nombre.charAt(0).toUpperCase() + author.nombre.slice(1)} color="primary" />
                                     )
                                 }
                             })
