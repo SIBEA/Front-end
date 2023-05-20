@@ -39,13 +39,18 @@ function ProjectContent() {
             } else {
                 let rawProject = await fetch(`https://back.klariff.com/proyectos/${searchParams.get('project-id')}`)
                 let projectResponse = await rawProject.json();
-                if (projectResponse == "No se encontraron resultados para la busqueda") {
+                if (!projectResponse.id) {
                     setProject(null);
                     Swal.fire({
                         title: 'Error',
-                        text: 'No se encontró el proyecto',
+                        text: 'No se encontró el proyecto de investigación',
                         icon: 'error',
                         confirmButtonText: 'Ok'
+                        
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            window.location.href = "search?query=" + JSON.parse(sessionStorage.getItem('results')).query;
+                        }
                     })
                 } else {
                     let rawProjectsTopK = await fetch(`https://back.klariff.com/search/proyectos/{titulo}/topk?query=${projectResponse.titulo}&num=10&inicio=0`)
@@ -133,7 +138,7 @@ function ProjectContent() {
                                         <Stack style={{ marginTop: "0.5rem", marginBottom: "1rem" }} direction="row" spacing={1}>
                                             {
                                                 project.miembros.map((miembro, index) => {
-                                                    if (!isNull(miembro.nombre)) {
+                                                    if (!isNull(miembro.nombre) && index < 3) {
                                                         return (
                                                             <Chip onClick={(e) => openResearcher(miembro.id)} style={{ backgroundColor: "#F8CD00", color: "black", cursor: "pointer" }} key={"author_" + index} label={miembro.nombre} color="primary" />
                                                         )

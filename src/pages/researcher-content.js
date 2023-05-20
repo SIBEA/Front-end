@@ -23,12 +23,18 @@ function ResearcherContent() {
       } else {
         let rawResearcher = await fetch(`https://back.klariff.com/investigadores/${searchParams.get('researcher-id')}`)
         let researcherResponse = await rawResearcher.json();
-        if (researcherResponse == "No se encontraron resultados para la busqueda") {
+        if (!researcherResponse.docs) {
+          setResearcher(null);
           Swal.fire({
-            title: 'Error',
-            text: 'No se encontró el investigador',
-            icon: 'error',
-            confirmButtonText: 'Ok'
+              title: 'Error',
+              text: 'No se encontró el investigador',
+              icon: 'error',
+              confirmButtonText: 'Ok'
+              
+          }).then((result) => {
+              if (result.isConfirmed) {
+                  window.location.href = "search?query=" + JSON.parse(sessionStorage.getItem('results')).query;
+              }
           })
         } else {
           let saved = { researcher: researcherResponse ? researcherResponse : null }

@@ -36,13 +36,18 @@ function GroupContent() {
             } else {
                 let rawGroup = await fetch(`https://back.klariff.com/grupos/${searchParams.get('group-id')}`)
                 let groupResponse = await rawGroup.json();
-                if (groupResponse == "No se encontraron resultados para la busqueda") {
-                    setProject(null);
+                if (!groupResponse.docs) {
+                    setGroup(null);
                     Swal.fire({
                         title: 'Error',
-                        text: 'No se encontró el grupo',
+                        text: 'No se encontró el grupo de investigación',
                         icon: 'error',
                         confirmButtonText: 'Ok'
+                        
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            window.location.href = "search?query=" + JSON.parse(sessionStorage.getItem('results')).query;
+                        }
                     })
                 } else {
                     let saved = { group: groupResponse.docs[0] ? groupResponse.docs[0] : null }
