@@ -131,7 +131,7 @@ function GroupContent() {
 
                             </div>
                             <div className="Right-section" style={{ width: "20%" }}>
-                                <Typography style={{ fontWeight: "700", fontSize: "15pt", marginBottom: "1.5rem", color: "#2C5697" }}>Investigadores</Typography>
+                                <Typography style={{ fontWeight: "700", fontSize: "15pt", marginBottom: "1.5rem", color: "#2C5697" }}>Colaboradores</Typography>
                                 <div className="Right-panel">
                                     {
                                         group.investigadores && (

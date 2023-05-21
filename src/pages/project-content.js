@@ -239,7 +239,7 @@ function ProjectContent() {
                                 {
                                     !isNull(project.sujeto_investigacion[0]) && (
                                         <div style={{ marginBottom: "2rem" }}>
-                                            <Typography style={{ fontWeight: "700", fontSize: "15pt", color: "#2C5697" }} component={'span'}>Sujeto investigación</Typography>
+                                            <Typography style={{ fontWeight: "700", fontSize: "15pt", color: "#2C5697" }} component={'span'}>Términos clave</Typography>
 
                                             <Stack style={{ marginTop: "1rem" }} direction="row" spacing={1}>
                                                 {

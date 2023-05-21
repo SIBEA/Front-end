@@ -23,7 +23,7 @@ function ResearcherContent() {
       } else {
         let rawResearcher = await fetch(`https://back.klariff.com/investigadores/${searchParams.get('researcher-id')}`)
         let researcherResponse = await rawResearcher.json();
-        if (!researcherResponse.docs) {
+        if (!researcherResponse.id) {
           setResearcher(null);
           Swal.fire({
               title: 'Error',
@@ -108,7 +108,7 @@ function ResearcherContent() {
                 }
               </div>
               <div className="Right-section" style={{ width: "20%" }}>
-                <Typography style={{ fontWeight: "700", fontSize: "15pt", marginBottom: "1.5rem", color: "#2C5697" }}>Grupos de investigación</Typography>
+                <Typography style={{ fontWeight: "700", fontSize: "15pt", marginBottom: "1.5rem", color: "#2C5697" }}>Colaborador en</Typography>
                 <div className="Right-panel">
                   {
                     researcher.grupos && (
