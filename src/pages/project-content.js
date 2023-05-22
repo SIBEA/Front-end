@@ -14,7 +14,8 @@ let DefaultIcon = leaflet.icon({
     iconUrl: icon,
     shadowUrl: iconShadow,
     iconSize: [25, 41],
-    iconAnchor:  [12, 40]
+    iconAnchor: [12, 40],
+    popupAnchor: [0, -40],
 });
 
 leaflet.Marker.prototype.options.icon = DefaultIcon;
@@ -48,7 +49,7 @@ function ProjectContent() {
                         text: 'No se encontró el proyecto de investigación',
                         icon: 'error',
                         confirmButtonText: 'Ok'
-                        
+
                     }).then((result) => {
                         if (result.isConfirmed) {
                             window.location.href = "search?query=" + JSON.parse(sessionStorage.getItem('results')).query;

@@ -16,7 +16,10 @@ import iconShadow from 'leaflet/dist/images/marker-shadow.png';
 
 let DefaultIcon = leaflet.icon({
   iconUrl: icon,
-  shadowUrl: iconShadow
+  shadowUrl: iconShadow,
+  iconSize: [25, 41],
+  iconAnchor:  [12, 40],
+  popupAnchor: [0, -40],
 });
 
 leaflet.Marker.prototype.options.icon = DefaultIcon;
