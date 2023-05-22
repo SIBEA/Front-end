@@ -12,7 +12,9 @@ import { useSearchParams } from 'react-router-dom'
 
 let DefaultIcon = leaflet.icon({
     iconUrl: icon,
-    shadowUrl: iconShadow
+    shadowUrl: iconShadow,
+    iconSize: [25, 41],
+    iconAnchor:  [12, 40]
 });
 
 leaflet.Marker.prototype.options.icon = DefaultIcon;
@@ -119,7 +121,7 @@ function ProjectContent() {
                                 <Typography style={{ fontWeight: "700", fontSize: "15pt", marginBottom: "1.5rem", color: "#2C5697" }} component={'span'}>Grupo</Typography>
                                 {
                                     project.grupo && !isNull(project.grupo) && (
-                                        <Stack style={{ marginTop: "0.5rem", marginBottom: "1rem" }} direction="row" spacing={1}>
+                                        <Stack style={{ marginTop: "0.5rem", marginBottom: "2rem" }} direction="row" spacing={1}>
                                             {
                                                 project.grupo.map((grupo, index) => {
                                                     if (!isNull(grupo.nombre)) {
@@ -135,7 +137,7 @@ function ProjectContent() {
                                 <Typography style={{ fontWeight: "700", fontSize: "15pt", marginBottom: "1.5rem", color: "#2C5697" }} component={'span'}>Miembros</Typography>
                                 {
                                     project.grupo && !isNull(project.grupo) && (
-                                        <Stack style={{ marginTop: "0.5rem", marginBottom: "1rem" }} direction="row" spacing={1}>
+                                        <Stack style={{ marginTop: "0.5rem", marginBottom: "2rem" }} direction="row" spacing={1}>
                                             {
                                                 project.miembros.map((miembro, index) => {
                                                     if (!isNull(miembro.nombre) && index < 3) {
@@ -218,13 +220,13 @@ function ProjectContent() {
                                 </div>
                                 {
                                     !isNull(project.comunidades[0]) && (
-                                        <div style={{ marginBottom: "2rem" }}>
-                                            <Typography style={{ fontWeight: "700", fontSize: "15pt", color: "#2C5697" }} component={'span'}>Comunidades</Typography>
+                                        <div>
+                                            <Typography style={{ fontWeight: "700", fontSize: "15pt", color: "#2C5697", marginBottom: "2rem" }} component={'span'}>Comunidades</Typography>
 
-                                            <Stack style={{ marginTop: "1rem" }} direction="row" spacing={1}>
+                                            <Stack style={{ marginTop: "2rem", marginBottom: "1rem" }} direction="row" spacing={1}>
                                                 {
                                                     project.comunidades.map((community, index) => {
-                                                        if (!isNull(community)) {
+                                                        if (!isNull(community) && index < 3) {
                                                             return (
                                                                 <Chip label={community.charAt(0).toUpperCase() + community.slice(1)} variant="outlined" color="primary" />
                                                             )
@@ -238,13 +240,13 @@ function ProjectContent() {
 
                                 {
                                     !isNull(project.sujeto_investigacion[0]) && (
-                                        <div style={{ marginBottom: "2rem" }}>
-                                            <Typography style={{ fontWeight: "700", fontSize: "15pt", color: "#2C5697" }} component={'span'}>Términos clave</Typography>
+                                        <div style={{ marginTop: "2rem" }}>
+                                            <Typography style={{ fontWeight: "700", fontSize: "15pt", color: "#2C5697", marginBottom: "1.5rem" }} component={'span'}>Términos clave</Typography>
 
-                                            <Stack style={{ marginTop: "1rem" }} direction="row" spacing={1}>
+                                            <Stack style={{ marginTop: "2rem", marginBottom: "0.5rem" }} direction="row" spacing={1}>
                                                 {
                                                     project.sujeto_investigacion.map((sujeto, index) => {
-                                                        if (!isNull(sujeto)) {
+                                                        if (!isNull(sujeto) && index < 3) {
                                                             return (
                                                                 <Chip label={sujeto.charAt(0).toUpperCase() + sujeto.slice(1)} variant="outlined" color="primary" />
                                                             )
@@ -257,7 +259,7 @@ function ProjectContent() {
                                 }
                                 {
                                     coordinates && (
-                                        <div>
+                                        <div style={{ marginTop: "2rem" }}>
                                             <Typography style={{ fontWeight: "700", fontSize: "15pt", color: "#2C5697" }} component={'span'}>Ubicación identificada</Typography>
                                             <div className="generic-container" style={{ marginTop: "2rem" }}>
                                                 <MapContainer center={[4.570868, -74.297333]} id="map" style={{ height: "300px" }} zoom={1} scrollWheelZoom={false}>
@@ -268,7 +270,7 @@ function ProjectContent() {
                                                     {
                                                         coordinates.map((item, index) => {
                                                             return (
-                                                                <Marker position={[item.lat, item.lon]} id={'marker_' + index} key={index}>
+                                                                <Marker position={[item.lat, item.lon]} icon={DefaultIcon} id={'marker_' + index} key={index}>
                                                                     <Popup>
                                                                         <b>{item.title}</b>
                                                                     </Popup>
@@ -287,7 +289,7 @@ function ProjectContent() {
 
                                 {
                                     projectTopKResults && (
-                                        <div style={{ marginBottom: "2rem" }}>
+                                        <div style={{ marginTop: "2rem" }}>
                                             <Typography style={{ fontWeight: "700", fontSize: "15pt", marginBottom: "1.5rem", color: "#2C5697" }}>Proyectos similares</Typography>
                                             {
                                                 projectTopKResults.map((item, index) => {
