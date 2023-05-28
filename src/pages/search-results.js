@@ -18,7 +18,7 @@ let DefaultIcon = leaflet.icon({
   iconUrl: icon,
   shadowUrl: iconShadow,
   iconSize: [25, 41],
-  iconAnchor:  [12, 40],
+  iconAnchor: [12, 40],
   popupAnchor: [0, -40],
 });
 
@@ -94,27 +94,30 @@ function Results() {
     switch (newTab) {
       case 0:
         let rawProjects = await fetch(`https://back.klariff.com/search/proyectos/${searchParams.get('query')}?num=10&inicio=0`)
-        let rawTotalProjects = await fetch(`https://back.klariff.com/proyectos/${searchParams.get('query')}/total`)
+        let rawTotalProjects = await (await fetch(`https://back.klariff.com/proyectos/${searchParams.get('query')}/total`)).json();
         let projectsResponse = await rawProjects.json();
-        saved.pageCount = Math.ceil(await rawTotalProjects.json() / ROWS_PER_PAGE);
+        setPageCount(Math.ceil(rawTotalProjects / ROWS_PER_PAGE));
+        saved.pageCount = Math.ceil(rawTotalProjects / ROWS_PER_PAGE);
         saved.tab = newTab;
         saved.projectResults = projectsResponse
         setProjectResults(projectsResponse);
         break;
       case 1:
         let rawGroups = await fetch(`https://back.klariff.com/search/grupos/${searchParams.get('query')}?num=10&inicio=0`)
-        let rawTotalGroups = await fetch(`https://back.klariff.com/grupos/${searchParams.get('query')}/total`)
+        let rawTotalGroups = await (await fetch(`https://back.klariff.com/grupos/${searchParams.get('query')}/total`)).json();
         let groupsResponse = await rawGroups.json();
-        saved.pageCount = Math.ceil(await rawTotalGroups.json() / ROWS_PER_PAGE);
+        setPageCount(Math.ceil(rawTotalGroups / ROWS_PER_PAGE));
+        saved.pageCount = Math.ceil(rawTotalGroups / ROWS_PER_PAGE);
         saved.tab = newTab;
         saved.groupResults = groupsResponse;
         setGroupResults(groupsResponse);
         break;
       case 2:
         let rawResearchers = await fetch(`https://back.klariff.com/search/investigadores/${searchParams.get('query')}?num=10&inicio=0`)
-        let rawTotalResearchers = await fetch(`https://back.klariff.com/investigadores/${searchParams.get('query')}/total`)
+        let rawTotalResearchers = await (await fetch(`https://back.klariff.com/investigadores/${searchParams.get('query')}/total`)).json();
         let researchersResponse = await rawResearchers.json();
-        saved.pageCount = Math.ceil(await rawTotalResearchers.json() / ROWS_PER_PAGE);
+        setPageCount(Math.ceil(rawTotalResearchers / ROWS_PER_PAGE));
+        saved.pageCount = Math.ceil(rawTotalResearchers / ROWS_PER_PAGE);
         saved.tab = newTab;
         saved.researcherResults = researchersResponse;
         setResearcherResults(researchersResponse);
@@ -220,13 +223,34 @@ function Results() {
   async function handlePagination(event, value) {
     Swal.fire({ title: "Cargando", allowOutsideClick: false, didClose: () => { window.scrollTo({ top: 0, behavior: "smooth" }) } })
     Swal.showLoading();
-    let rawProjects = await fetch(`https://back.klariff.com/search/proyectos/${searchParams.get('query')}?num=10&inicio=${(value - 1) * 10}${propuestaSearch ? '&propuesta="' + propuestaSearch+'"' : ''}${estadoSearch ? '&estado="' + estadoSearch+'"' : ''}&comunidades=${comunidadSearch ? comunidadSearch : '"sin_filtrar"'}`)
-    let projectsResponse = await rawProjects.json();
-    setProjectResults(projectsResponse ? projectsResponse : null);
-    let saved = JSON.parse(window.sessionStorage.getItem('results'));
-    saved.projectResults = projectsResponse;
-    saved.page = value;
-    window.sessionStorage.setItem('results', JSON.stringify(saved));
+    let saved =  JSON.parse(window.sessionStorage.getItem('results'));
+    switch (tab) {
+      case 0:
+        let rawProjects = await fetch(`https://back.klariff.com/search/proyectos/${searchParams.get('query')}?num=10&inicio=${(value - 1) * 10}${propuestaSearch ? '&propuesta="' + propuestaSearch + '"' : ''}${estadoSearch ? '&estado="' + estadoSearch + '"' : ''}&comunidades=${comunidadSearch ? comunidadSearch : '"sin_filtrar"'}`)
+        let projectsResponse = await rawProjects.json();
+        setProjectResults(projectsResponse ? projectsResponse : null);
+        saved.projectResults = projectsResponse;
+        saved.page = value;
+        window.sessionStorage.setItem('results', JSON.stringify(saved));
+        break;
+      case 1:
+        let rawGroups = await fetch(`https://back.klariff.com/search/grupos/${searchParams.get('query')}?num=10&inicio=${(value - 1) * 10}${propuestaSearch ? '&propuesta="' + propuestaSearch + '"' : ''}${estadoSearch ? '&estado="' + estadoSearch + '"' : ''}&comunidades=${comunidadSearch ? comunidadSearch : '"sin_filtrar"'}`)
+        let groupsResponse = await rawGroups.json();
+        setGroupResults(groupsResponse ? groupsResponse : null);
+        saved.groupResults = groupsResponse;
+        saved.page = value;
+        window.sessionStorage.setItem('results', JSON.stringify(saved));
+        break;
+      case 2:
+        let rawResearchers = await fetch(`https://back.klariff.com/search/investigadores/${searchParams.get('query')}?num=10&inicio=${(value - 1) * 10}${propuestaSearch ? '&propuesta="' + propuestaSearch + '"' : ''}${estadoSearch ? '&estado="' + estadoSearch + '"' : ''}&comunidades=${comunidadSearch ? comunidadSearch : '"sin_filtrar"'}`)
+        let researchersResponse = await rawResearchers.json();
+        setResearcherResults(researchersResponse ? researchersResponse : null);
+        saved.researcherResults = researchersResponse;
+        saved.page = value;
+        window.sessionStorage.setItem('results', JSON.stringify(saved));
+        break;
+    }
+
     setPage(value);
     Swal.close();
   }
@@ -246,8 +270,8 @@ function Results() {
   const getDataFiltered = async () => {
     Swal.fire({ title: "Cargando", allowOutsideClick: false })
     Swal.showLoading();
-    let rawProjects = await fetch(`https://back.klariff.com/search/proyectos/${searchParams.get('query')}?num=10&inicio=0${propuestaSearch ? '&propuesta="' + propuestaSearch+'"' : ''}${estadoSearch ? '&estado="' + estadoSearch+'"' : ''}&comunidades=${comunidadSearch ? comunidadSearch : '"sin_filtrar"'}`)
-    let rawTotalRows = await fetch(`https://back.klariff.com/proyectos/${searchParams.get('query')}/total?${propuestaSearch ? 'propuesta="' + propuestaSearch+'"' : ''}${estadoSearch ? '&estado="' + estadoSearch+'"' : ''}&comunidades=${comunidadSearch ? comunidadSearch : '"sin_filtrar"'}`)
+    let rawProjects = await fetch(`https://back.klariff.com/search/proyectos/${searchParams.get('query')}?num=10&inicio=0${propuestaSearch ? '&propuesta="' + propuestaSearch + '"' : ''}${estadoSearch ? '&estado="' + estadoSearch + '"' : ''}&comunidades=${comunidadSearch ? comunidadSearch : '"sin_filtrar"'}`)
+    let rawTotalRows = await fetch(`https://back.klariff.com/proyectos/${searchParams.get('query')}/total?${propuestaSearch ? 'propuesta="' + propuestaSearch + '"' : ''}${estadoSearch ? '&estado="' + estadoSearch + '"' : ''}&comunidades=${comunidadSearch ? comunidadSearch : '"sin_filtrar"'}`)
     let responseTotalRows = await rawTotalRows.json();
     let saved = JSON.parse(window.sessionStorage.getItem('results'));
     let projectsResponse = await rawProjects.json();
@@ -318,64 +342,64 @@ function Results() {
           <div className="Right-section" style={{ width: "20%" }}>
             <div className="Right-panel">
               <Typography style={{ fontWeight: "700", fontSize: "15pt", marginBottom: "1.5rem", color: "#2C5697" }} component={'span'}>Filtros</Typography>
-              <div style={{ width: "100%", display: "grid", placeItems: "center", marginBottom: "3rem"}}>
-              <div style={{width: "300px"}}>
-                <div style={{marginBottom: "1rem"}}>
-                  <FormControl fullWidth>
-                    <InputLabel id="demo-simple-select-label">Tipo de propuesta</InputLabel>
-                    <Select
-                      labelId="demo-simple-select-label"
-                      id="demo-simple-select"
-                      label="Estado del proyecto"
-                      onChange={handleChangePropuesta}
-                    >
-                      <MenuItem value={null}>Seleccionar</MenuItem>
-                      <MenuItem value={"Proyecto de investigación: Investigación"}>Proyecto de investigación: Investigación</MenuItem>
-                      <MenuItem value={"Actividad de investigación: Apoyo a nuevas publicaciones"}>Actividad de investigación: Apoyo a nuevas publicaciones</MenuItem>
-                      <MenuItem value={"Proyecto de innovación: Spin-Off"}>Proyecto de innovación: Spin-Off</MenuItem>
-                      <MenuItem value={"Actividad de investigación: Movilidad-Internacional"}>Actividad de investigación: Movilidad-Internacional</MenuItem>
-                      <MenuItem value={"Actividad de investigación: Otros apoyos"}>Actividad de investigación: Otros apoyos</MenuItem>
-                      <MenuItem value={"Proyecto de innovación: Prueba concepto"}>Proyecto de innovación: Prueba concepto</MenuItem>
-                      <MenuItem value={"Proyecto de innovación: Universidad empresa"}>Proyecto de innovación: Universidad empresa</MenuItem>
-                      <MenuItem value={"Proyecto de innovación: Innovación"}>Proyecto de innovación: Innovación</MenuItem>
-                    </Select>
-                  </FormControl>
-                </div>
-                <div style={{marginBottom: "1rem"}}>
-                  <FormControl fullWidth>
-                    <InputLabel id="demo-simple-select-label">Estado del proyecto</InputLabel>
-                    <Select
-                      labelId="demo-simple-select-label"
-                      id="demo-simple-select"
-                      label="Estado del proyecto"
-                      onChange={handleChangeEstado}
-                    >
-                      <MenuItem value={null}>Seleccionar</MenuItem>
-                      <MenuItem value={"Terminado"}>Terminado</MenuItem>
-                      <MenuItem value={"Pendiente Compromiso"}>Pendiente Compromiso</MenuItem>
-                      <MenuItem value={"En Liquidación"}>En Liquidación</MenuItem>
-                      <MenuItem value={"En Ejecución"}>En Liquidación</MenuItem>
-                    </Select>
-                  </FormControl>
-                </div>
-                <div>
-                  <FormControl fullWidth>
-                    <InputLabel id="demo-simple-select-label">Incluye comunidades</InputLabel>
-                    <Select
-                      labelId="demo-simple-select-label"
-                      id="demo-simple-select"
-                      label="Estado del proyecto"
-                      onChange={handleChangeComunidades}
-                    >
-                      <MenuItem value={null}>Seleccionar</MenuItem>
-                      <MenuItem value={"con_comunidades"}>Si</MenuItem>
-                      <MenuItem value={"sin_comunidades"}>No</MenuItem>
+              <div style={{ width: "100%", display: "grid", placeItems: "center", marginBottom: "3rem" }}>
+                <div style={{ width: "300px" }}>
+                  <div style={{ marginBottom: "1rem" }}>
+                    <FormControl fullWidth>
+                      <InputLabel id="demo-simple-select-label">Tipo de propuesta</InputLabel>
+                      <Select
+                        labelId="demo-simple-select-label"
+                        id="demo-simple-select"
+                        label="Estado del proyecto"
+                        onChange={handleChangePropuesta}
+                      >
+                        <MenuItem value={null}>Seleccionar</MenuItem>
+                        <MenuItem value={"Proyecto de investigación: Investigación"}>Proyecto de investigación: Investigación</MenuItem>
+                        <MenuItem value={"Actividad de investigación: Apoyo a nuevas publicaciones"}>Actividad de investigación: Apoyo a nuevas publicaciones</MenuItem>
+                        <MenuItem value={"Proyecto de innovación: Spin-Off"}>Proyecto de innovación: Spin-Off</MenuItem>
+                        <MenuItem value={"Actividad de investigación: Movilidad-Internacional"}>Actividad de investigación: Movilidad-Internacional</MenuItem>
+                        <MenuItem value={"Actividad de investigación: Otros apoyos"}>Actividad de investigación: Otros apoyos</MenuItem>
+                        <MenuItem value={"Proyecto de innovación: Prueba concepto"}>Proyecto de innovación: Prueba concepto</MenuItem>
+                        <MenuItem value={"Proyecto de innovación: Universidad empresa"}>Proyecto de innovación: Universidad empresa</MenuItem>
+                        <MenuItem value={"Proyecto de innovación: Innovación"}>Proyecto de innovación: Innovación</MenuItem>
+                      </Select>
+                    </FormControl>
+                  </div>
+                  <div style={{ marginBottom: "1rem" }}>
+                    <FormControl fullWidth>
+                      <InputLabel id="demo-simple-select-label">Estado del proyecto</InputLabel>
+                      <Select
+                        labelId="demo-simple-select-label"
+                        id="demo-simple-select"
+                        label="Estado del proyecto"
+                        onChange={handleChangeEstado}
+                      >
+                        <MenuItem value={null}>Seleccionar</MenuItem>
+                        <MenuItem value={"Terminado"}>Terminado</MenuItem>
+                        <MenuItem value={"Pendiente Compromiso"}>Pendiente Compromiso</MenuItem>
+                        <MenuItem value={"En Liquidación"}>En Liquidación</MenuItem>
+                        <MenuItem value={"En Ejecución"}>En Liquidación</MenuItem>
+                      </Select>
+                    </FormControl>
+                  </div>
+                  <div>
+                    <FormControl fullWidth>
+                      <InputLabel id="demo-simple-select-label">Incluye comunidades</InputLabel>
+                      <Select
+                        labelId="demo-simple-select-label"
+                        id="demo-simple-select"
+                        label="Estado del proyecto"
+                        onChange={handleChangeComunidades}
+                      >
+                        <MenuItem value={null}>Seleccionar</MenuItem>
+                        <MenuItem value={"con_comunidades"}>Si</MenuItem>
+                        <MenuItem value={"sin_comunidades"}>No</MenuItem>
 
-                    </Select>
-                  </FormControl>
+                      </Select>
+                    </FormControl>
+                  </div>
                 </div>
-              </div>
-              <Button style={{ width: "60%", marginTop: "1rem" }} onClick={() => getDataFiltered()} variant="outlined">Aplicar</Button>
+                <Button style={{ width: "60%", marginTop: "1rem" }} onClick={() => getDataFiltered()} variant="outlined">Aplicar</Button>
               </div>
             </div>
             {
