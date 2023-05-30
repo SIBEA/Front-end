@@ -29,7 +29,9 @@ function Header() {
   }
 
   const search = (e) => {
-    window.location.href = "/search?query=" + searchCriteria;
+    if (searchCriteria != "" && searchCriteria != null && searchCriteria != undefined && searchCriteria.replace(/\s/g, '').length) {
+      window.location.href = "/search?query=" + searchCriteria;
+    }
   }
 
   const handleKeyPress = (event) => {

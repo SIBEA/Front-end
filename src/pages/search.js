@@ -30,7 +30,7 @@ function Search() {
   };
 
   const search = (e) => {
-    if (searchCriteria != "") {
+    if (searchCriteria != "" && searchCriteria != null && searchCriteria != undefined && searchCriteria.replace(/\s/g, '').length) {
       window.location.href = "/search?query=" + searchCriteria;
     }
   }
