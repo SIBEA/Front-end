@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import map from './../resources/map.jpg';
 import './css/result-content.css';
-import leaflet from 'leaflet';
+import L from 'leaflet';
 import icon from 'leaflet/dist/images/marker-icon.png';
 import iconShadow from 'leaflet/dist/images/marker-shadow.png';
 import { MapContainer, TileLayer, useMap, Marker, Popup } from 'react-leaflet';
@@ -9,8 +9,10 @@ import Swal from 'sweetalert2';
 import { Box, Tab, Tabs, Typography, TextField, Button, IconButton, Pagination, Chip, Stack, FormControl, InputLabel, Select, MenuItem, OutlinedInput, Checkbox, ListItemText } from '@mui/material';
 import ScrollToTop from "react-scroll-to-top";
 import { useSearchParams } from 'react-router-dom'
+import '../assets/Leaflet.fullscreen.js';
+import '../assets/leaflet.fullscreen.css';
 
-let DefaultIcon = leaflet.icon({
+let DefaultIcon = L.icon({
     iconUrl: icon,
     shadowUrl: iconShadow,
     iconSize: [25, 41],
@@ -18,7 +20,7 @@ let DefaultIcon = leaflet.icon({
     popupAnchor: [0, -40],
 });
 
-leaflet.Marker.prototype.options.icon = DefaultIcon;
+L.Marker.prototype.options.icon = DefaultIcon;
 
 function ProjectContent() {
     const [project, setProject] = useState(null);
@@ -263,7 +265,7 @@ function ProjectContent() {
                                         <div style={{ marginTop: "2rem" }}>
                                             <Typography style={{ fontWeight: "700", fontSize: "15pt", color: "#2C5697" }} component={'span'}>Ubicación identificada</Typography>
                                             <div className="generic-container" style={{ marginTop: "2rem" }}>
-                                                <MapContainer center={[4.570868, -74.297333]} id="map" style={{ height: "300px" }} zoom={1} scrollWheelZoom={false}>
+                                                <MapContainer fullscreenControl={true} center={[4.570868, -74.297333]} id="map" style={{ height: "300px" }} zoom={1} scrollWheelZoom={false}>
                                                     <TileLayer
                                                         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                                                         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -285,9 +287,25 @@ function ProjectContent() {
                                         </div>
                                     )
                                 }
+                                {
+                                    coordinates && (
+                                        <div style={{ marginTop: "2rem" }}>
+                                            <Typography style={{ fontWeight: "700", fontSize: "15pt", color: "#2C5697", marginBottom: "1.5rem" }} component={'span'}>Nombres de ubicaciones identificadas</Typography>
 
-
-
+                                            <Stack style={{ marginTop: "2rem", marginBottom: "0.5rem" }} direction="row" spacing={1}>
+                                                {
+                                                    coordinates.map((lugar, index) => {
+                                                        if (!isNull(lugar) && index < 3) {
+                                                            return (
+                                                                <Chip label={lugar.title.charAt(0).toUpperCase() + lugar.title.slice(1)} variant="outlined" color="primary" />
+                                                            )
+                                                        }
+                                                    })
+                                                }
+                                            </Stack>
+                                        </div>
+                                    )
+                                }
                                 {
                                     projectTopKResults && (
                                         <div style={{ marginTop: "2rem" }}>

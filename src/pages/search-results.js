@@ -9,12 +9,13 @@ import ScrollToTop from "react-scroll-to-top";
 import { useTheme } from '@mui/material/styles';
 import ReactWordcloud from 'react-wordcloud';
 import { MapContainer, TileLayer, useMap, Marker, Popup } from 'react-leaflet';
-import leaflet from 'leaflet';
+import L from 'leaflet';
 import icon from 'leaflet/dist/images/marker-icon.png';
 import iconShadow from 'leaflet/dist/images/marker-shadow.png';
+import '../assets/Leaflet.fullscreen.js';
+import '../assets/leaflet.fullscreen.css';
 
-
-let DefaultIcon = leaflet.icon({
+let DefaultIcon = L.icon({
   iconUrl: icon,
   shadowUrl: iconShadow,
   iconSize: [25, 41],
@@ -22,7 +23,7 @@ let DefaultIcon = leaflet.icon({
   popupAnchor: [0, -40],
 });
 
-leaflet.Marker.prototype.options.icon = DefaultIcon;
+L.Marker.prototype.options.icon = DefaultIcon;
 
 function Results() {
 
@@ -435,7 +436,7 @@ function Results() {
                 <div>
                   <Typography style={{ fontWeight: "700", fontSize: "15pt", color: "#2C5697" }} component={'span'}>Ubicaciones</Typography>
                   <div className="generic-container" style={{ marginTop: "2rem" }}>
-                    <MapContainer center={[4.570868, -74.297333]} id="map" style={{ height: "300px" }} zoom={1} scrollWheelZoom={false}>
+                    <MapContainer fullscreenControl={true} center={[4.570868, -74.297333]} id="map" style={{ height: "300px" }} zoom={1} scrollWheelZoom={false} >
                       <TileLayer
                         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
